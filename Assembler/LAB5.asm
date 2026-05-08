@@ -1,13 +1,13 @@
 INCLUDE Irvine32.inc
 
 
-; Макрос для вывода строки
+; ГЊГ ГЄГ°Г®Г± Г¤Г«Гї ГўГ»ГўГ®Г¤Г  Г±ГІГ°Г®ГЄГЁ
 PRINT_STR MACRO msg
     mov edx, OFFSET msg
     call WriteString
 ENDM
 
-; Макрос для вывода символа
+; ГЊГ ГЄГ°Г®Г± Г¤Г«Гї ГўГ»ГўГ®Г¤Г  Г±ГЁГ¬ГўГ®Г«Г 
 PRINT_CHAR MACRO ch
     mov al, ch
     call WriteChar
@@ -48,12 +48,12 @@ scan_loop:
     inc edi
     inc esi
 
-    ; Проверяем — это simv?
+    ; ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ вЂ” ГЅГІГ® simv?
     mov bl, simv
     cmp al, bl
     jne scan_loop
 
-    ; Найден simv — вставляем mas1
+    ; ГЌГ Г©Г¤ГҐГ­ simv вЂ” ГўГ±ГІГ ГўГ«ГїГҐГ¬ mas1
     push esi
     mov esi, 0
 
@@ -71,9 +71,9 @@ done_insert:
     jmp scan_loop
 
 done_scan:
-    mov result[edi], 0  ; завершающий ноль
+    mov result[edi], 0  ; Г§Г ГўГҐГ°ГёГ ГѕГ№ГЁГ© Г­Г®Г«Гј
 
-    ; Вывод результата
+    ; Г‚Г»ГўГ®Г¤ Г°ГҐГ§ГіГ«ГјГІГ ГІГ 
     PRINT_STR msg3
     PRINT_STR result
 
